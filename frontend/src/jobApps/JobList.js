@@ -28,19 +28,36 @@ function JobList() {
         }
       ]
 
-      const appliedSwitch = () => {
-        !setDisplayApplied()
-      }
+      const listedJobs = jobApps.map((job) => {
+        return(
+          <li>
+            <h3>{job.position} - {job.company}</h3>
+            <h4>{job.url}</h4>
+            <h5>{job.date_applied}</h5>
+          </li>
+        )
+      })
+
+      // const appliedSwitch = () => {
+      //   !setDisplayApplied()
+      // }
     
-      class App extends Component {
-        constructor(props) {
-          super(props);
-          this.state = {
-            viewCompleted: false,
-            jobApps: jobApps,
-          }
-        }
-      }
+      // class JobList extends Component {
+      //   constructor(props) {
+      //     super(props);
+      //     this.state = {
+      //       viewCompleted: false,
+      //       jobApps: jobApps,
+      //     }
+      //   }
+      // }
 
-
+      return(
+        <>
+          <h1>Job Juggler</h1>
+          <ul>{listedJobs}</ul>
+        </>
+      )
 }
+
+export default JobList
