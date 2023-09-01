@@ -1,32 +1,15 @@
-import React, { Component, useState } from "react"
+import React, { Component, useState, useEffect } from "react"
+import axios from 'axios';
 import '../App.css';
 
 function JobList() {
     const [displayApplied, setDisplayApplied] = useState(false)
+    const [jobApps, setJobApps] = useState([])
 
-    const jobApps = [
-        {
-          company: "Microsoft",
-          position: "Software Engineer",
-          url: "www.microsoft.com/jobs",
-          data_applied: "2023/7/23",
-          status: "Applied",
-        },
-        {
-          company: "Booz Allen Hamilton",
-          position: "Integration Engineer",
-          url: "www.boozallen.com/careers",
-          date_applied: "2023/08/12",
-          status: "Rejected",
-        },
-        {
-          company: "Ubisoft",
-          position: "Application Developer",
-          url: "www.ubisoft.com/joinus",
-          date_applied: "2023/07/18",
-          status: "Applied",
-        }
-      ]
+      const fetchJobList = async () => {
+          const response = await axios.get('/api/jobApps')
+          console.log(response)
+      }
 
       const listedJobs = jobApps.map((job) => {
         return(
@@ -37,6 +20,10 @@ function JobList() {
           </li>
         )
       })
+
+      useEffect(() => {
+        fetchJobList();
+      }, [])
 
       // const appliedSwitch = () => {
       //   !setDisplayApplied()
