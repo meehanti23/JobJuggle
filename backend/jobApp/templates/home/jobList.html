@@ -1,3 +1,11 @@
-<h1>
-    This is the job list
-</h1>
+<html>
+    <h1>
+        This is the job list
+    </h1>
+
+    <ul>
+        {% for jobApp in jobApps %}
+            <li>{{jobApp.position}} -- {{jobApp.company}}</li>
+        {% endfor %}
+    </ul>
+</html>

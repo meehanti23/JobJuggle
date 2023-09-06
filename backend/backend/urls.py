@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+from jobApp import urls
 from jobApp import views
 
 
@@ -26,5 +27,5 @@ router.register(r'jobApps', views.JobAppView, 'jobApp')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('jobList', ./jobApp/views)
+    path('', include('jobApp.urls')),
 ]
