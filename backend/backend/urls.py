@@ -19,10 +19,12 @@ from django.urls import path, include
 from rest_framework import routers
 from jobApp import views
 
+
 router = routers.DefaultRouter()
 router.register(r'jobApps', views.JobAppView, 'jobApp')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('jobList', ./jobApp/views)
 ]
