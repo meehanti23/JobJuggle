@@ -1,11 +1,22 @@
-<html>
-    <h1>
-        This is the job list
-    </h1>
+{% extends "base.html" %}
 
-    <ul>
+{% block content %}
+    <div class="home-title">
+        <h1 class="home-title my-5">
+            This is the job list
+        </h1>
+    </div>
+
+    <div class="row row-cols3 g-2">
         {% for jobApp in jobApps %}
-            <li>{{jobApp.position}} -- {{jobApp.company}}</li>
+        <div class="col">
+            <a href="{% url 'jobApps.detail' pk=jobApp.id %}">
+            <div class="p-3 border">
+                <h3>{{jobApp.position}}</h3>
+                <h5>{{jobApp.company}}</h5>
+            </div>
+            </a>
+        </div>
         {% endfor %}
-    </ul>
-</html>
+    </div>
+{% endblock %}
