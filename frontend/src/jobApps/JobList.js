@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import axios from 'axios';
 import '../App.css';
 
@@ -7,8 +7,13 @@ function JobList() {
     const [jobApps, setJobApps] = useState([])
 
       const fetchJobList = async () => {
-          const response = await axios.get('/api/jobApps')
+          const response = await axios.get('http://localhost:8000/api/jobApps')
           console.log(response)
+          if (response.status === 200) {
+            setJobApps(response.data.jobApps);
+        } else {
+            console.error('Error in search:', response.data.error);
+        }
       }
 
       const listedJobs = jobApps.map((job) => {
