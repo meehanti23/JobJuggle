@@ -5,4 +5,8 @@
     <h1>{{job.position}}</h1>
 
     <h3>{{job.company}}</h3>
+
+<a href="{% url 'jobApps.list'%}" class="btn btn-secondary">Back</a>
+<a href="{% url 'jobApps.update' pk=job.id %}" class="btn btn-secondary">Edit</a>
+<a href="{% url 'jobApps.delete' pk=job.id %}" class="btn btn-danger">Delete</a>
 {% endblock %}
