@@ -5,6 +5,8 @@
     <h1>{{job.position}}</h1>
 
     <h3>{{job.company}}</h3>
+    <h3>Date Applied: {{job.date_applied}}</h3>
+    <h3>Application Status: {{job.status}}</h3>
 
 <a href="{% url 'jobApps.list'%}" class="btn btn-secondary">Back</a>
 <a href="{% url 'jobApps.update' pk=job.id %}" class="btn btn-secondary">Edit</a>

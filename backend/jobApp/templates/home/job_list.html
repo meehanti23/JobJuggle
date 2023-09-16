@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="home-title">
+        <h1 class="home-title my-5">
+            JobJuggler
+        </h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2 class="status-title">Applied: {{ applied_jobs_count }}</h2>
+            {% for jobApp in jobApps|dictsortreversed:"date_applied" %}
+                {% if jobApp.status == "Applied" %}
+                    <div class="p-3 border job-tile">
+                        <a href="{% url 'jobApps.detail' pk=jobApp.id %}">
+                            <h3 class="tile-position">{{ jobApp.position }}</h3>
+                        </a>
+                        <h5>{{ jobApp.company }}</h5>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="col-md-4">
+            <h2 class="status-title">Rejected: {{ rejected_jobs_count }}</h2>
+            {% for jobApp in jobApps|dictsortreversed:"date_applied" %}
+                {% if jobApp.status == "Rejected" %}
+                    <div class="p-3 border job-tile">
+                        <a href="{% url 'jobApps.detail' pk=jobApp.id %}">
+                            <h3 class="tile-position">{{ jobApp.position }}</h3>
+                        </a>
+                        <h5>{{ jobApp.company }}</h5>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="col-md-4">
+            <h2 class="status-title">Interview: {{ interview_jobs_count }}</h2>
+            {% for jobApp in jobApps|dictsortreversed:"date_applied" %}
+                {% if jobApp.status == "Interview" %}
+                    <div class="p-3 border job-tile">
+                        <a href="{% url 'jobApps.detail' pk=jobApp.id %}">
+                            <h3 class="tile-position">{{ jobApp.position }}</h3>
+                        </a>
+                        <h5>{{ jobApp.company }}</h5>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="add-new-button">
+        <a href="{% url 'job.new' %}" class="btn btn-secondary">Add New</a>
+    </div>
+{% endblock %}
