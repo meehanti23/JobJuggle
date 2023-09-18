@@ -12,7 +12,7 @@
             <h2 class="status-title">Applied: {{ applied_jobs_count }}</h2>
             {% for jobApp in jobApps|dictsortreversed:"date_applied" %}
                 {% if jobApp.status == "Applied" %}
-                    <div class="p-3 border job-tile">
+                    <div class="p-3 border applied-tile">
                         <a href="{% url 'jobApps.detail' pk=jobApp.id %}">
                             <h3 class="tile-position">{{ jobApp.position }}</h3>
                         </a>
@@ -26,7 +26,7 @@
             <h2 class="status-title">Rejected: {{ rejected_jobs_count }}</h2>
             {% for jobApp in jobApps|dictsortreversed:"date_applied" %}
                 {% if jobApp.status == "Rejected" %}
-                    <div class="p-3 border job-tile">
+                    <div class="p-3 border rejected-tile">
                         <a href="{% url 'jobApps.detail' pk=jobApp.id %}">
                             <h3 class="tile-position">{{ jobApp.position }}</h3>
                         </a>
@@ -40,7 +40,7 @@
             <h2 class="status-title">Interview: {{ interview_jobs_count }}</h2>
             {% for jobApp in jobApps|dictsortreversed:"date_applied" %}
                 {% if jobApp.status == "Interview" %}
-                    <div class="p-3 border job-tile">
+                    <div class="p-3 border interview-tile">
                         <a href="{% url 'jobApps.detail' pk=jobApp.id %}">
                             <h3 class="tile-position">{{ jobApp.position }}</h3>
                         </a>

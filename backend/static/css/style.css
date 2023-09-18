@@ -20,11 +20,14 @@ html::before {
     margin-left: 20px;
 }
 
-.job-tile {
-    background-color: bisque;
+.applied-tile,
+.rejected-tile,
+.interview-tile {
     width: 80%;
     margin-left: 2em;
-    margin-bottom: .5em
+    margin-bottom: .5em;
+    border-radius: .5em;
+    border: 30px solid black;
 }
 
 .status-title {
@@ -34,4 +37,16 @@ html::before {
 
 .tile-position {
     font-size: 1.3em;
+}
+
+.applied-tile {
+    background-color: bisque;
+}
+
+.rejected-tile {
+    background-color: lightcoral;
+}
+
+.interview-tile {
+    background-color: lightgreen;
 }
